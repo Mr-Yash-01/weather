@@ -9,6 +9,7 @@ const Header = () => {
   const [userLocation, setUserLocation] = useState('...'); 
   const defaultHeader = document.getElementById('defaultHeader');
   const searchHeader = document.getElementById('searchHeader');
+  const processLoader = document.getElementById('processLoader');
   const dispatch = useDispatch();
   let isDefaultHeader = true;
 
@@ -37,9 +38,10 @@ const Header = () => {
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter' && !isDefaultHeader) {
-      defaultHeader.style.display = 'flex';
+      defaultHeader.style.display = 'none';
       searchHeader.style.display = 'none';
-      setUserLocation('...');
+      processLoader.style.display = 'flex';
+      // setUserLocation('...');
 
       try {
       const searchValue = document.querySelector('#searchHeader input').value;
@@ -56,10 +58,11 @@ const Header = () => {
 
       })
       .then(result => {
+        processLoader.style.display = 'none';
         setUserLocation(result.location.name);
         dispatch(setWeather(result));
         defaultHeader.style.display = 'flex';
-        searchHeader.style.display = 'none';
+        // searchHeader.style.display = 'none';
         searchHeader.children[1].value = '';
         searchHeader.children[1].placeholder = 'Search';
       })
@@ -100,6 +103,7 @@ const Header = () => {
         </svg>
         <input type="text" className="w-5/6 bg-transparent outline-none" placeholder="Search..."></input>
       </div>
+      <div id="processLoader" className='hidden loader'></div>
     </div>
   )
 }
