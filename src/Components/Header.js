@@ -98,7 +98,7 @@ const Header = () => {
         </div>
       </div>
       <div id="searchHeader" onClick={() => focusSearch()} className="hidden gap-4 text-4xl items-center md:text-5xl 2xl:px-32">
-        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="min-h-6 min-w-6 bi bi-search md:h-7 md:w-7" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="max-h-8 bi bi-search md:h-7 md:w-7" viewBox="0 0 16 16">
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
         </svg>
         <input type="text" className="w-5/6 bg-transparent outline-none" placeholder="Search..."></input>
